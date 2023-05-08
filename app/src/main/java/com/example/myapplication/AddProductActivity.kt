@@ -20,6 +20,9 @@ class AddProductActivity: AppCompatActivity() {
 
         zatwierdzButton.setOnClickListener {
             val nazwaPotrawy = findViewById<EditText>(R.id.nazwaPotrawy)
+            val nazwaAuthor = findViewById<EditText>(R.id.nazwaAuthor)
+            val nazwaOcena = findViewById<EditText>(R.id.nazwaOcena)
+            val nazwaData = findViewById<EditText>(R.id.nazwaData)
 
             val database = getSharedPreferences("database", Context.MODE_PRIVATE)
             var n: Int = 0
@@ -30,6 +33,9 @@ class AddProductActivity: AppCompatActivity() {
                 else{
                     database.edit().apply {
                         putString("savedNazwa$n", nazwaPotrawy.text.toString())
+                        putString("savedAuthor$n", nazwaAuthor.text.toString())
+                        putString("savedOcena$n", nazwaOcena.text.toString())
+                        putString("savedData$n", nazwaData.text.toString())
                     }.apply()
                     break
                 }
